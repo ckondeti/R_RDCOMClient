@@ -1,0 +1,11 @@
+library(RDCOMClient)
+
+OutApp <- COMCreate("Outlook.Application")  
+outMail = OutApp$CreateItem(0) 
+
+outMail[["To"]] = "chetan.kondeti@smud.org" 
+outMail[["subject"]] = "Test" 
+outMail[["body"]] = "Test-1"
+outMail[["Attachments"]]$Add("C:/New folder/AdhocReport.xlsx")
+
+outMail$Send()
